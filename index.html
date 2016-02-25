@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Квадратне рівняння</title>
+    <script language="javascript">
+        function square_equation()
+        {
+            var a = document.square.squarea.value;
+            var b = document.square.squareb.value;
+            var c = document.square.squarec.value;
+            var sol = document.getElementById("square_result");
+            var d = b * b - 4 * a * c;
+            if ( d < 0 ) {
+                string = " d < 0";
+            }
+            else {
+                if ( d == 0 ) {
+                    string = "<br>x<sub>1</sub> = x<sub>2</sub> = ";
+                    string += -b / ( 2 * a );
+                } else {
+                    string = "<br>x<sub>1</sub> = ";
+                    string += Number((-b / ( 2 * a ) - Math.sqrt( d ) / ( 2 * a )).toFixed(2));
+                    string += ", x<sub>2</sub> = ";
+                    string += Number((-b / ( 2 * a ) + Math.sqrt( d ) / ( 2 * a )).toFixed(2));
+                }
+            }
+            sol.innerHTML = string;
+        }
+    </script>
+</head>
+<body>
+<div>
+    <p>ax2 + bx + c = </p>
+    <form name="square" action="javascript:square_equation()">
+        a <input name="squarea" >
+        b <input name="squareb" >
+        c <input name="squarec" >
+        <input type="submit" value="result">
+    </form>
+    <span id="square_result"></span>
+</div>
+</body>
+</html>
